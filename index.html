@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raul Quiroga · Editor / Filmmaker</title>
+<meta name="description" content="Raul Quiroga is an editor and filmmaker. 14+ years of broadcast craft, emotional editorial and GenAI-driven filmmaking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="logo" href="index.html">Raul Quiroga</a>
+  <div class="links">
+    <a href="index.html" class="reel-link">Reel</a>
+    <a href="#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="mailto:raulquiroga.film@gmail.com">Contact</a>
+  </div>
+</nav>
+
+<!-- ── HERO REEL ──
+     Full-bleed background loop (muted, no controls). The button opens
+     the reel in a lightbox player with sound and full controls. -->
+<header class="hero">
+  <h1 class="sr-only">Raul Quiroga · Editor / Filmmaker</h1>
+  <div class="video-wrap">
+    <iframe id="bgReel"
+      src="https://player.vimeo.com/video/1209639654?h=d6bda9c183&background=1"
+      allow="autoplay; fullscreen" title="Showreel (background)"></iframe>
+  </div>
+  <div class="scrim"></div>
+  <div class="hero-copy">
+    <p class="tagline">Editor / Filmmaker. 14 years of storytelling, enhanced with creative AI.</p>
+    <button class="sound-btn" onclick="openReel()">▶ Play reel with sound</button>
+  </div>
+</header>
+
+<div class="lightbox" id="lightbox" onclick="closeReel()" aria-hidden="true">
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeReel()" aria-label="Close reel">✕</button>
+    <div class="lightbox-frame">
+      <iframe id="lightboxFrame" src="about:blank"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Showreel"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORK ── -->
+<main class="section" id="work">
+  <p class="section-label">Selected work</p>
+  <div class="work-grid">
+
+    <a class="tile" href="burger-king.html">
+      <img class="media" src="assets/burger-king.jpg" alt="Burger King TV spot" onerror="this.removeAttribute('src')">
+      <span class="num">01</span>
+      <div class="meta"><span class="title">Burger King</span><span class="kind">TV Spot</span></div>
+    </a>
+
+    <a class="tile" href="impact-film.html">
+      <img class="media" src="https://i.vimeocdn.com/video/2179336006-455e7f62de36483db056da31ccc5d5e21b79f44ef32065fd4aa48a20d92b4ee2-d_1280?region=us" alt="Impact film" onerror="this.removeAttribute('src')">
+      <span class="num">02</span>
+      <div class="meta"><span class="title">Impact Film</span><span class="kind">Brand Film</span></div>
+    </a>
+
+    <a class="tile" href="f1-ai.html">
+      <img class="media" src="https://i.vimeocdn.com/video/2179338705-06f9aa1da8178ad7cf1d2cf62b634ba304f5eef14f39f080c643c0d7758fa4b1-d_1280?region=us" alt="F1 AI image-to-video R&D" onerror="this.removeAttribute('src')">
+      <span class="num">03</span>
+      <div class="meta"><span class="title">F1 AI R&amp;D</span><span class="kind">GenAI R&amp;D</span></div>
+    </a>
+
+    <a class="tile" href="invisible-worker.html">
+      <img class="media" src="https://i.vimeocdn.com/video/2179340934-d8241ba2f781d6fa5e6c8453af34aaaffb43658cd40898a93d1880545e187e37-d_1280?region=us" alt="The Invisible Worker Podcast" onerror="this.removeAttribute('src')">
+      <span class="num">04</span>
+      <div class="meta"><span class="title">Invisible Worker Podcast</span><span class="kind">Series · 2 Seasons</span></div>
+    </a>
+
+    <a class="tile" href="finwell.html">
+      <img class="media" src="https://i.vimeocdn.com/video/2179339027-e7065d8ea697228eddccb8ee9443a9eca9095ce222a0bd3dcd547ec988661694-d_1280?region=us" alt="FinWell Forum" onerror="this.removeAttribute('src')">
+      <span class="num">05</span>
+      <div class="meta"><span class="title">FinWell Forum</span><span class="kind">Event Film</span></div>
+    </a>
+
+  </div>
+</main>
+
+<footer class="contact">
+  <p class="cta">Get in touch</p>
+  <a class="email" href="mailto:raulquiroga.film@gmail.com">raulquiroga.film@gmail.com</a>
+  <p class="fine">London / remote · © 2026 Raul Quiroga</p>
+</footer>
+
+<script>
+  var reelSrc = 'https://player.vimeo.com/video/1209639654?h=d6bda9c183&autoplay=1&muted=0&title=0&byline=0&portrait=0&badge=0&dnt=1';
+  function bgReel(method) {
+    document.getElementById('bgReel').contentWindow
+      .postMessage(JSON.stringify({ method: method }), 'https://player.vimeo.com');
+  }
+  function openReel() {
+    bgReel('pause');
+    document.getElementById('lightboxFrame').src = reelSrc;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeReel() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightboxFrame').src = 'about:blank';
+    document.body.style.overflow = '';
+    bgReel('play');
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeReel();
+  });
+</script>
+
+</body>
+</html>
