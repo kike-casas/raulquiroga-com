@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Burger King · Raul Quiroga</title>
+<title>Contact · Raul Quiroga</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -15,45 +15,39 @@
   <a class="logo" href="index.html">Raul Quiroga</a>
   <div class="links">
     <a href="index.html" class="reel-link">Reel</a>
-    <a href="index.html#work" class="active">Work</a>
+    <a href="index.html#work">Work</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </div>
 </nav>
 
-<header class="project-head">
-  <h1>Burger King</h1>
-  <p class="kind">TV Spot · Broadcast</p>
-</header>
+<section class="contact-page">
+  <h1>Get in touch</h1>
+  <p class="contact-sub">For work, collaborations or a conversation.</p>
 
-<!-- Image for now. To use video instead, swap this block back to the
-     iframe player used on the other project pages (see impact-film.html). -->
-<div class="player">
-  <div class="frame">
-    <img src="assets/burger-king.jpg" alt="Raul Quiroga directing the Burger King shoot"
-         style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
-  </div>
-</div>
-
-<section class="project-body">
-  <div class="context">
-
-    <p>A TV-style spot for one of the most recognisable brands in the world. Broadcast pace and broadcast polish: the kind of cut that has to land in thirty seconds or not at all.</p>
-  </div>
-  <dl class="essentials">
-    <dt>My role</dt><dd>Editor</dd>
-    <dt>Client</dt><dd>Burger King</dd>
-    <dt>Format</dt><dd>TV commercial</dd>
-  </dl>
+  <form action="https://formsubmit.co/raulquiroga.film@gmail.com" method="POST" class="contact-form" id="contactForm">
+    <input type="hidden" name="_subject" value="raulquiroga.com enquiry">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://www.raulquiroga.com/contact.html?sent=1">
+    <label>
+      Name
+      <input type="text" name="name" required autocomplete="name">
+    </label>
+    <label>
+      Email
+      <input type="email" name="email" required autocomplete="email">
+    </label>
+    <label>
+      Message
+      <textarea name="message" rows="6" required></textarea>
+    </label>
+    <button type="submit">Send</button>
+    <p class="form-sent" id="formSent">Thank you. Your message is on its way.</p>
+  </form>
 </section>
 
-<nav class="pager">
-  <a href="index.html#work">← All work</a>
-  <a href="impact-film.html">Impact Film →</a>
-</nav>
-
 <footer class="contact">
-  <p class="cta">Get in touch</p>
+  <p class="cta">Or write directly</p>
   <a class="email" href="mailto:raulquiroga.film@gmail.com">raulquiroga.film@gmail.com</a>
   <div class="socials">
     <a href="https://www.instagram.com/raulquiroga.film/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.7-.3 1.8-.1 1.3-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.7.3 1.8.3 1.3.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.7.3-1.8.1-1.3.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.7-.3-1.8-.3-1.3-.1-1.6-.1-4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm5.1-2.9a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></svg></a>
@@ -61,6 +55,13 @@
   </div>
   <p class="fine">London / remote · © 2026 Raul Quiroga</p>
 </footer>
+
+<script>
+  if (new URLSearchParams(location.search).get('sent')) {
+    document.getElementById('formSent').style.display = 'block';
+    document.getElementById('contactForm').reset();
+  }
+</script>
 
 </body>
 </html>
