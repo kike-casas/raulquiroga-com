@@ -25,10 +25,7 @@
   <h1>Get in touch</h1>
   <p class="contact-sub">For work, collaborations or a conversation.</p>
 
-  <form action="https://formsubmit.co/2152aa31ad9584a1c281faec10ad85e4" method="POST" class="contact-form" id="contactForm">
-    <input type="hidden" name="_subject" value="raulquiroga.com enquiry">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://www.raulquiroga.com/contact.html?sent=1">
+  <form class="contact-form" id="contactForm">
     <label>
       Name
       <input type="text" name="name" required autocomplete="name">
@@ -41,9 +38,13 @@
       Message
       <textarea name="message" rows="6" required></textarea>
     </label>
-    <button type="submit">Send</button>
-    <p class="form-sent" id="formSent">Thank you. Your message is on its way.</p>
+    <button type="submit" id="sendBtn">Send</button>
   </form>
+
+  <div id="sentState" style="display:none;">
+    <h2 class="sent-title">Message sent.</h2>
+    <p class="contact-sub">Thank you. I will get back to you soon.</p>
+  </div>
 </section>
 
 <footer class="contact">
@@ -57,10 +58,31 @@
 </footer>
 
 <script>
-  if (new URLSearchParams(location.search).get('sent')) {
-    document.getElementById('formSent').style.display = 'block';
-    document.getElementById('contactForm').reset();
-  }
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var btn = document.getElementById('sendBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      var r = await fetch('https://formsubmit.co/ajax/2152aa31ad9584a1c281faec10ad85e4', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: this.elements['name'].value,
+          email: this.elements['email'].value,
+          message: this.elements['message'].value,
+          _subject: 'raulquiroga.com enquiry'
+        })
+      });
+      if (!r.ok) throw new Error();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('sentState').style.display = 'block';
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Send';
+      alert('Something went wrong. Please email me directly at raulquiroga.film@gmail.com');
+    }
+  });
 </script>
 
 </body>

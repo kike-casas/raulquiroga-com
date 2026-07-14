@@ -314,7 +314,13 @@ img, video, iframe { display: block; max-width: 100%; }
   transition: background 0.2s, border-color 0.2s;
 }
 .contact-form button:hover { background: rgba(244,244,242,0.12); border-color: var(--ink); }
-.form-sent { display: none; color: var(--ink); font-size: 15px; }
+.sent-title {
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: 36px;
+}
 
 /* ── CONTACT FOOTER ── */
 .contact {
